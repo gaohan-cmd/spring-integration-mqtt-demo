@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: MQTT-DEMO
+  mqtt:
+    url: wss://lcad0ec6.ala.cn-hangzhou.emqxsl.cn:8084
+    auth-type: USERNAME
+    username: ghan
+    password: ghan
+    client-id: MQTT-CLIENT-DEV
+    # 这里指定要订阅的主题及其相关配置，进行测试时候，可以使用EMQX的客户端进行发布消息，同时也可以让EMQX的客户端进行消息订阅
+    receive-topics:
+      - qos: 0
+        name:  ghan/#
+    default-send-topic:
+      qos: 0
+      name: ghanbox/ghan-${spring.application.name}
+    keep-alive: 15
+    completion-timeout: 3000

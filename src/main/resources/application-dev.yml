@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: MQTT-DEMO
+  mqtt:
+    url: tcp://broker-cn.emqx.io
+    auth-type: NONE
+    # 指定要订阅的主题及其相关配置
+    receive-topics:
+      - qos: 1
+        name: ghan/#
+    # 指定要发布的主题及其相关配置
+    default-send-topic:
+      qos: 1
+      name: default/ghan-${spring.application.name}
+    keep-alive: 15
+    completion-timeout: 3000
